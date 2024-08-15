@@ -1,4 +1,4 @@
-package org.example.greenatom.entity;
+package org.example.greenatom.model.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -11,7 +11,7 @@ import lombok.ToString;
 @ToString
 public class File {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @Column(name = "file_data")

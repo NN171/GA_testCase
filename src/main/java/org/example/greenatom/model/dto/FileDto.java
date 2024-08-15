@@ -1,4 +1,4 @@
-package org.example.greenatom.dto;
+package org.example.greenatom.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

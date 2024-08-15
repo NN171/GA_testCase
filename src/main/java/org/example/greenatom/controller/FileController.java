@@ -1,27 +1,29 @@
 package org.example.greenatom.controller;
 
-import org.example.greenatom.dto.FileDto;
-import org.example.greenatom.repository.FileRepository;
+import lombok.SneakyThrows;
+import org.example.greenatom.model.domain.File;
+import org.example.greenatom.model.dto.FileDto;
+import org.example.greenatom.service.FileService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "api/greenAtom/storage")
 public class FileController {
 
-    private final FileRepository fileRepository;
+    private final FileService fileService;
 
-    public FileController(FileRepository fileRepository) {
-        this.fileRepository = fileRepository;
+    public FileController(FileService fileService) {
+        this.fileService = fileService;
     }
 
+    @SneakyThrows
     @GetMapping(path = "/get")
-    public FileDto getFile(@RequestParam(value = "id") Long id) {
-        return fileRepository.getFileById(id);
+    public File getFile(@RequestParam(value = "id") Long id) {
+        return fileService.getFile(id);
     }
 
     @GetMapping(path = "/create")
     public Long createFile(@RequestBody FileDto fileDto) {
-        fileRepository.createFileByFileDto(fileDto);
-        return fileRepository.getIdByFileDto(fileDto);
+        return fileService.saveFile(fileDto);
     }
 }
