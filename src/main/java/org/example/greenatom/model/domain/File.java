@@ -1,17 +1,15 @@
 package org.example.greenatom.model.domain;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 @Entity
 @NoArgsConstructor
 @Data
-@ToString
+@Table(name = "file")
 public class File {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "file_data")
@@ -25,5 +23,4 @@ public class File {
 
     @Column
     private String description;
-
 }

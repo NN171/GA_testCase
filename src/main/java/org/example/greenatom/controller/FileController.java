@@ -1,13 +1,17 @@
 package org.example.greenatom.controller;
 
 import lombok.SneakyThrows;
+import org.example.greenatom.exhandler.FileNotExist;
 import org.example.greenatom.model.domain.File;
 import org.example.greenatom.model.dto.FileDto;
 import org.example.greenatom.service.FileService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.FileNotFoundException;
+
 @RestController
-@RequestMapping(path = "api/greenAtom/storage")
+@RequestMapping(path = "api/greenatom/storage")
 public class FileController {
 
     private final FileService fileService;
@@ -16,14 +20,13 @@ public class FileController {
         this.fileService = fileService;
     }
 
-    @SneakyThrows
     @GetMapping(path = "/get")
-    public File getFile(@RequestParam(value = "id") Long id) {
-        return fileService.getFile(id);
+    public ResponseEntity<?> getFile(@RequestParam(value = "id") Long id) throws FileNotExist {
+        return ResponseEntity.ok(fileService.getFile(id));
     }
 
-    @GetMapping(path = "/create")
-    public Long createFile(@RequestBody FileDto fileDto) {
-        return fileService.saveFile(fileDto);
+    @PutMapping(path = "/create")
+    public ResponseEntity<?> createFile(@RequestBody FileDto fileDto) {
+        return ResponseEntity.ok(fileService.saveFile(fileDto));
     }
 }

@@ -4,8 +4,7 @@ import org.example.greenatom.model.domain.File;
 import org.example.greenatom.model.dto.FileDto;
 import org.mapstruct.Mapper;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface FileMapper {
-    FileDto sourceToDestination(File source);
-    File destinationToSource(FileDto destination);
+    File toEntity(FileDto destination);
 }
