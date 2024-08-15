@@ -22,7 +22,7 @@ public class FileServiceImpl implements FileService {
     @Override
     @Transactional
     public Long saveFile(FileDto fileDto) {
-        File file = fileMapper.toEntity(fileDto);
+        File file = fileMapper.dtoToEntity(fileDto);
         fileRepository.save(file);
         return file.getId();
     }
@@ -30,6 +30,6 @@ public class FileServiceImpl implements FileService {
     @Override
     public FileDto getFile(Long id) {
         File file = fileRepository.findById(id).orElseThrow(() -> new FileNotExist(String.format("File with ID %s doesn't exist", id)));
-        return fileMapper.toDto(file);
+        return fileMapper.fileToDto(file);
     }
 }

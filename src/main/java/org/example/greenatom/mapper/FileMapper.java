@@ -6,6 +6,6 @@ import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface FileMapper {
-    File toEntity(FileDto destination);
-    FileDto toDto(File source);
+    File dtoToEntity(FileDto dto);
+    FileDto fileToDto(File file);
 }
