@@ -1,7 +1,6 @@
 package org.example.greenatom.service.impl;
 
 import jakarta.transaction.Transactional;
-import lombok.SneakyThrows;
 import org.example.greenatom.exhandler.FileNotExist;
 import org.example.greenatom.mapper.FileMapper;
 import org.example.greenatom.model.domain.File;
@@ -24,11 +23,13 @@ public class FileServiceImpl implements FileService {
     @Transactional
     public Long saveFile(FileDto fileDto) {
         File file = fileMapper.toEntity(fileDto);
-        return fileRepository.save(file).getId();
+        fileRepository.save(file);
+        return file.getId();
     }
 
     @Override
-    public File getFile(Long id) throws FileNotExist {
-        return fileRepository.findById(id).orElseThrow(() -> new FileNotExist(id.toString()));
+    public FileDto getFile(Long id) {
+        File file = fileRepository.findById(id).orElseThrow(() -> new FileNotExist(String.format("File with ID %s doesn't exist", id)));
+        return fileMapper.toDto(file);
     }
 }

@@ -8,5 +8,5 @@ import java.io.FileNotFoundException;
 
 public interface FileService {
     Long saveFile(FileDto fileDto);
-    File getFile(Long id) throws FileNotExist;
+    FileDto getFile(Long id);
 }

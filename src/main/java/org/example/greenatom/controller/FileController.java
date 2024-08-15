@@ -21,12 +21,12 @@ public class FileController {
     }
 
     @GetMapping(path = "/get")
-    public ResponseEntity<?> getFile(@RequestParam(value = "id") Long id) throws FileNotExist {
+    public ResponseEntity<FileDto> getFile(@RequestParam(value = "id") Long id) {
         return ResponseEntity.ok(fileService.getFile(id));
     }
 
-    @PutMapping(path = "/create")
-    public ResponseEntity<?> createFile(@RequestBody FileDto fileDto) {
+    @PostMapping(path = "/create")
+    public ResponseEntity<Long> createFile(@RequestBody FileDto fileDto) {
         return ResponseEntity.ok(fileService.saveFile(fileDto));
     }
 }
