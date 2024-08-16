@@ -10,5 +10,5 @@ import java.util.List;
 public interface FileMapper {
     File dtoToEntity(FileDto dto);
     FileDto fileToDto(File file);
-    List<FileDto> entityListToDtoList(List<File> files);
+    List<FileDto> filesToDtoList(List<File> files);
 }

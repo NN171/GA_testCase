@@ -41,8 +41,8 @@ public class FileServiceImpl implements FileService {
 
     @Override
     public List<FileDto> getAllFiles(int pageNum, int pageSize) {
-        Pageable sortedByDateCreation = PageRequest.of(pageNum, pageSize, Sort.by("date_creation").descending());
+        Pageable sortedByDateCreation = PageRequest.of(pageNum, pageSize, Sort.by("creationDate").descending());
         Page<File> page = fileRepository.findAll(sortedByDateCreation);
-        return fileMapper.entityListToDtoList(page.getContent());
+        return fileMapper.filesToDtoList(page.getContent());
     }
 }
