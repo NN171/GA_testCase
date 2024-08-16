@@ -7,7 +7,13 @@ import org.example.greenatom.model.domain.File;
 import org.example.greenatom.model.dto.FileDto;
 import org.example.greenatom.repository.FileRepository;
 import org.example.greenatom.service.FileService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class FileServiceImpl implements FileService {
@@ -31,5 +37,12 @@ public class FileServiceImpl implements FileService {
     public FileDto getFile(Long id) {
         File file = fileRepository.findById(id).orElseThrow(() -> new FileNotExist(String.format("File with ID %s doesn't exist", id)));
         return fileMapper.fileToDto(file);
+    }
+
+    @Override
+    public List<FileDto> getAllFiles(int pageNum, int pageSize) {
+        Pageable sortedByDateCreation = PageRequest.of(pageNum, pageSize, Sort.by("date_creation").descending());
+        Page<File> page = fileRepository.findAll(sortedByDateCreation);
+        return fileMapper.entityListToDtoList(page.getContent());
     }
 }

@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.FileNotFoundException;
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/greenatom/storage")
@@ -20,7 +21,7 @@ public class FileController {
         this.fileService = fileService;
     }
 
-    @GetMapping(path = "/get")
+    @GetMapping(path = "/get/file")
     public ResponseEntity<FileDto> getFile(@RequestParam(value = "id") Long id) {
         return ResponseEntity.ok(fileService.getFile(id));
     }
@@ -28,5 +29,11 @@ public class FileController {
     @PostMapping(path = "/create")
     public ResponseEntity<Long> createFile(@RequestBody FileDto fileDto) {
         return ResponseEntity.ok(fileService.saveFile(fileDto));
+    }
+
+    @GetMapping(path = "/get")
+    public ResponseEntity<List<FileDto>> getFiles(@RequestParam(value = "pageNum") int pageNum,
+                                                     @RequestParam(value = "pageSize") int pageSize) {
+        return ResponseEntity.ok(fileService.getAllFiles(pageNum, pageSize));
     }
 }
