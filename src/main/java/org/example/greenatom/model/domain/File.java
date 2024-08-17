@@ -1,12 +1,16 @@
 package org.example.greenatom.model.domain;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor
 @Data
+@AllArgsConstructor
 @Table(name = "file")
 public class File {
     @Id
@@ -20,7 +24,7 @@ public class File {
     private String title;
 
     @Column(name = "creation_date")
-    private String creationDate;
+    private LocalDateTime creationDate;
 
     @Column
     private String description;
