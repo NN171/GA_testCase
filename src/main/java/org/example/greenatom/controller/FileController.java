@@ -27,8 +27,8 @@ public class FileController {
     }
 
     @PostMapping(path = "/create")
-    public ResponseEntity<Long> createFile(@RequestBody FileDto fileDto) {
-        return ResponseEntity.ok(fileService.saveFile(fileDto));
+    public ResponseEntity<String> createFile(@RequestBody FileDto fileDto) {
+        return ResponseEntity.ok(String.format("Файл %s успешно создан", fileService.saveFile(fileDto).toString()));
     }
 
     @GetMapping(path = "/get")

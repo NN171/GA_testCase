@@ -35,7 +35,7 @@ public class FileServiceImpl implements FileService {
 
     @Override
     public FileDto getFile(Long id) {
-        File file = fileRepository.findById(id).orElseThrow(() -> new FileNotExist(String.format("File with ID %s doesn't exist", id)));
+        File file = fileRepository.findById(id).orElseThrow(() -> new FileNotExist(String.format("Файл %s не существует", id)));
         return fileMapper.fileToDto(file);
     }
 
