@@ -1,14 +1,10 @@
 package org.example.greenatom.controller;
 
-import lombok.SneakyThrows;
-import org.example.greenatom.exhandler.FileNotExist;
-import org.example.greenatom.model.domain.File;
 import org.example.greenatom.model.dto.FileDto;
 import org.example.greenatom.service.FileService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.FileNotFoundException;
 import java.util.List;
 
 @RestController

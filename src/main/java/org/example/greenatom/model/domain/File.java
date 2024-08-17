@@ -1,7 +1,8 @@
 package org.example.greenatom.model.domain;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor

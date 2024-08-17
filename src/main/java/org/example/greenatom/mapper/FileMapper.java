@@ -9,6 +9,8 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface FileMapper {
     File dtoToEntity(FileDto dto);
+
     FileDto fileToDto(File file);
+
     List<FileDto> filesToDtoList(List<File> files);
 }
