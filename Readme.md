@@ -19,33 +19,46 @@
 ## 3. Примеры запросов
 
 ### Создание файла (http://localhost:8081/api/greenatom/storage/create)
+
+#### Файл 1
+```JSON
 {
 "file_data": "Zmlyc3RmaWxl",
 "title": "first file",
 "creation_date": "2024-08-16 17:10:00",
 "description": "description of first file"
 }
+```
 
+#### Файл 2
+```JSON
 {
 "file_data": "c2Vjb25kZmlsZQ==",
 "title": "second file",
 "creation_date": "2024-08-16 14:10:00",
 "description": "description of second file"
 }
+```
 
+#### Файл 3
+```JSON
 {
 "file_data": "dGhpcmRmaWxl",
 "title": "third file",
 "creation_date": "2024-08-16 18:34:00",
 "description": "description of third file"
 }
+```
 
+#### Файл 4
+```JSON
 {
 "file_data": "Zm91cnRoZmlsZQ==",
 "title": "first file",
 "creation_date": "2024-08-16 16:41:00",
 "description": "description of fourth file"
 }
+```
 
 ### Получение файла (http://localhost:8081/api/greenatom/storage/get/file?id=1)
 * ID является параметром API
