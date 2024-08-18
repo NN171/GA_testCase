@@ -11,14 +11,15 @@
 
 ## 2. Инструкция по запуску
 1. Склонировать репозиторий
-2. Создать базу данных с названием GreenAtom
+2. Создать пустую базу данных в PostgreSQL с названием GreenAtom
 3. Выполнить maven:clean, maven:install
-4. В терминале ввести: docker-compose up -d
+4. В терминале ввести: docker-compose up --build
 5. Ввести запросы в Postman
 
 ## 3. Примеры запросов
 
-### Создание файла (http://localhost:8081/api/greenatom/storage/create)
+### Создание файла 
+#### (http://localhost:8081/api/greenatom/storage/create)
 
 #### Файл 1
 ```JSON
@@ -60,10 +61,12 @@
 }
 ```
 
-### Получение файла (http://localhost:8081/api/greenatom/storage/get/file?id=1)
+### Получение файла 
+#### (http://localhost:8081/api/greenatom/storage/get/file?id=1)
 * ID является параметром API
 
-### Получение файлов (http://localhost:8081/api/greenatom/storage/get?num=0&size=3)
+### Получение файлов 
+#### (http://localhost:8081/api/greenatom/storage/get?num=0&size=3)
 * Номер страницы и количество записей на странице - параметры API
 * Параметр для номера страницы - num, для количества записей - size
 * Файлы выводятся по увеличению даты и времени
