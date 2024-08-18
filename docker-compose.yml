@@ -1,8 +1,8 @@
-version: '1.1'
+version: '3.8'
 
 services:
   app:
-    image: 'greenatom-testcase:latest'
+    image: postgres
     build:
       context: .
     container_name: greenatom
