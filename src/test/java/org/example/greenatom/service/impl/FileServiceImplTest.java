@@ -112,7 +112,7 @@ public class FileServiceImplTest {
                 "thirdFileDescription");
 
         Page<File> page = new PageImpl<>(List.of(firstFile, secondFile, thirdFile));
-        Pageable sortedByDate = PageRequest.of(pageNo, pageSize, Sort.by("creationDate").descending());
+        Pageable sortedByDate = PageRequest.of(pageNo, pageSize, Sort.by("creationDate").ascending());
 
         Mockito.when(fileRepository.findAll(sortedByDate)).thenReturn(page);
 

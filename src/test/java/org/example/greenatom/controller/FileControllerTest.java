@@ -77,8 +77,8 @@ public class FileControllerTest {
         Mockito.when(fileService.getAllFiles(0, 10)).thenReturn(list);
         mockMvc.perform(MockMvcRequestBuilders
                         .get("/api/greenatom/storage/get")
-                        .param("pageNum", "0")
-                        .param("pageSize", "10"))
+                        .param("num", "0")
+                        .param("size", "10"))
                 .andExpect(MockMvcResultMatchers.status().isOk());
         Mockito.verify(fileService, Mockito.times(1)).getAllFiles(0, 10);
     }
