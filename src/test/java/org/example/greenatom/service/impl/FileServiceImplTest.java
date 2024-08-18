@@ -23,7 +23,7 @@ import java.util.Optional;
 @ExtendWith(MockitoExtension.class)
 public class FileServiceImplTest {
 
-    private final DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    public static final DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     @Mock
     private FileRepository fileRepository;
@@ -147,7 +147,7 @@ public class FileServiceImplTest {
         Assertions.assertEquals(result, listOfDto);
     }
 
-    public List<FileDto> fileStore() {
+    public static List<FileDto> fileStore() {
 
         FileDto firstFile = new FileDto(
                 "firstFileContent",
