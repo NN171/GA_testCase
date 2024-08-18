@@ -28,8 +28,8 @@ public class FileController {
     }
 
     @GetMapping(path = "/get")
-    public ResponseEntity<List<FileDto>> getFiles(@RequestParam(defaultValue = "0") int pageNum,
-                                                  @RequestParam(defaultValue = "5") int pageSize) {
-        return ResponseEntity.ok(fileService.getAllFiles(pageNum, pageSize));
+    public ResponseEntity<List<FileDto>> getFiles(@RequestParam(defaultValue = "0") int num,
+                                                  @RequestParam(defaultValue = "5") int size) {
+        return ResponseEntity.ok(fileService.getAllFiles(num, size));
     }
 }
